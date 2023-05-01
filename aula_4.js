@@ -47,3 +47,4 @@ console.log(turma_t.every(p => p.age > 18)); // true
 
 
 
+

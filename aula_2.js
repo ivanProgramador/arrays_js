@@ -60,4 +60,48 @@ produtosEletronicos.forEach(produtoEletro=>{
 
 
 
+//removendo produtos invalidos da lista
+//um porduto é considerado valido quando todos so seus dados fazem sentido
+//porem nessa eu tenho pordutos com dados indefinidos e ate vazios 
+//antes deretonar isso no console eu preciso limprar esses indices usando o filter 
+
+var produtos = [
+    {id: 1, descricao: "Smartphone", categoria: "Eletrônico"},
+    {id: 2, descricao: "Notebook", categoria: "Eletrônico"},
+    {id: 3, descricao: "Geladeira", categoria: "Eletrodoméstico"},
+    {},
+    {id: null },
+    {id: NaN},
+    {id: 'undefined' },
+    {id: 4, descricao: "Liquidificador", categoria: "Eletrodoméstico"},
+    {id: 5, descricao: "Fogão", categoria: "Eletrodoméstico"}
+]
+
+//primeiro eu crio a função que vai determinar oque identifica um porduto valido e vaio retornar só os validos
+//essa função vai testar se os objetos tem id os que não tiverem vão ser eliminado porque não podem ser encontrados  
+//por enquanto ela e so uma função não tem nada a ver com o array 
+
+
+function filtrarPorDescricao(value){
+
+    if('id' in value && typeof(value.id) == 'number' && !isNaN(value.id)){
+        return value;
+    }
+
+}
+
+//agora eu uso o filter para aplicar a função nos indices da variavel produtos 
+
+
+var produtosValidos = produtos.filter(filtrarPorDescricao);
+
+produtosValidos.forEach(produto=>{
+
+     console.log(produto);
+
+});
+
+
+
+
 
